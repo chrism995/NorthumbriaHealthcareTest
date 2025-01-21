@@ -1,8 +1,11 @@
 {
   "version": 2,
-  "dgSpecHash": "tLv57KOeQKs=",
+  "dgSpecHash": "OiuWOgjUCF0=",
   "success": true,
   "projectFilePath": "C:\\repos\\TechT\\NorthumbriaHealthcareTest\\BattleShips\\BattleShips.csproj",
-  "expectedPackageFiles": [],
+  "expectedPackageFiles": [
+    "C:\\Users\\chris.males\\.nuget\\packages\\microsoft.extensions.dependencyinjection\\9.0.1\\microsoft.extensions.dependencyinjection.9.0.1.nupkg.sha512",
+    "C:\\Users\\chris.males\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\9.0.1\\microsoft.extensions.dependencyinjection.abstractions.9.0.1.nupkg.sha512"
+  ],
   "logs": []
 }
