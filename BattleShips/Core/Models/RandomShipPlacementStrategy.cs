@@ -18,7 +18,7 @@ namespace BattleShips.Core.Models
             PlaceShip(grid, shipFactory.CreateDestroyer());
             PlaceShip(grid, shipFactory.CreateDestroyer());
         }
-
+        
         private void PlaceShip(IGrid grid, IShip ship)
         {
             bool placed = false;

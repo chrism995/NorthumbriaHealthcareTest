@@ -11,6 +11,12 @@ namespace BattleShips.Core.Models
             _grid = grid;
         }
 
+        /// <summary>
+        /// Parses a string into a coordinate.
+        /// </summary>
+        /// <param name="input">The string to parse.</param>
+        /// <param name="coordinate">The parsed coordinate.</param>
+        /// <returns>True if the string was parsed successfully, otherwise false.</returns>
         public bool TryParse(string input, out Coordinate coordinate)
         {
             coordinate = null;

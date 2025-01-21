@@ -9,6 +9,10 @@ namespace BattleShips.Core.Models
         private readonly IShip?[,] _grid;
         private readonly List<IShip> _ships;
 
+        /// <summary>
+        /// Create a new grid
+        /// </summary>
+        /// <param name="size">The size of the grid</param>
         public Grid(int size)
         {
             Size = size;
@@ -16,6 +20,13 @@ namespace BattleShips.Core.Models
             _ships = new List<IShip>();
         }
 
+        /// <summary>
+        /// Place a ship on the grid
+        /// </summary>
+        /// <param name="ship">The ship to place</param>
+        /// <param name="start">The starting coordinate</param>
+        /// <param name="orientation">The orientation of the ship</param>
+        /// <returns>True if the ship was placed, otherwise false</returns>
         public bool PlaceShip(IShip ship, Coordinate start, Orientation orientation)
         {
             if (!IsValidPlacement(ship, start, orientation))
@@ -43,6 +54,11 @@ namespace BattleShips.Core.Models
             return true;
         }
 
+        /// <summary>
+        /// Shoot at the grid
+        /// </summary>
+        /// <param name="coordinate">The coordinate to shoot at</param>
+        /// <returns>The result of the shot</returns>
         public ShotResult Shoot(Coordinate coordinate)
         {
             if (coordinate.Row < 0 || coordinate.Row >= Size || coordinate.Column < 0 || coordinate.Column >= Size)
@@ -59,12 +75,18 @@ namespace BattleShips.Core.Models
             _grid[coordinate.Row, coordinate.Column] = null; 
             return ship.Shoot();
         }
-
         public bool AllShipsSunk()
         {
             return _ships.All(s => s.IsSunk);
         }
 
+        /// <summary>///
+        /// Check if the ship can be placed on the grid
+        /// </summary>
+        /// <param name="ship">The ship to place</param>
+        /// <param name="start">The starting coordinate</param>
+        /// <param name="orientation">The orientation of the ship</param>
+        /// <returns>True if the ship can be placed, otherwise false</returns>
         private bool IsValidPlacement(IShip ship, Coordinate start, Orientation orientation)
         {
             if (start.Row < 0 || start.Column < 0) return false;
@@ -85,6 +107,7 @@ namespace BattleShips.Core.Models
                     row += i;
                 }
 
+                // Check if the cell is out of bounds or already occupied
                 if (row >= Size || col >= Size || _grid[row, col] != null)
                 {
                     return false;
